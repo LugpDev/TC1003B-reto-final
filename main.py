@@ -7,6 +7,7 @@ from PIL import Image
 
 from filtros.grises import aplicar_escala_grises
 from filtros.binario import aplicar_binario
+from filtros.inverso import aplicar_inverso
 
 
 def copiar_imagen(event, editor):
@@ -112,6 +113,12 @@ btn_binario_dinamico = Button(
 btn_binario_dinamico.on_clicked(
     lambda event: aplicar_binario(event, editor, binarizado=True)
 )
+
+ax_btn_inversio = plt.axes([0.26, 0.96, 0.08, 0.04])
+btn_inversio = Button(
+    ax_btn_inversio, "Inverso", color="lightblue", hovercolor="skyblue"
+)
+btn_inversio.on_clicked(lambda event: aplicar_inverso(event, editor))
 
 ax_btn_save = plt.axes([0.92, 0.96, 0.08, 0.04])
 btn_save = Button(ax_btn_save, "Guardar", color="white", hovercolor="yellow")
