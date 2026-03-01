@@ -19,16 +19,6 @@ pixeles = imagen.load()
 imagen_procesada = Image.new("RGB", (ancho, alto), color="white")
 
 
-def actualizar_visualizacion(titulo):
-    ax1.clear()
-    ax1.imshow(imagen)
-    ax1.set_title(f"Original: {titulo}")
-    ax2.clear()
-    ax2.imshow(imagen_procesada)
-    ax2.set_title(f"Procesada: {titulo}")
-    fig.canvas.draw_idle()
-
-
 def copiar_imagen(event):
     global imagen
     global imagen_procesada
@@ -36,7 +26,8 @@ def copiar_imagen(event):
     imagen = imagen_procesada.copy()
     pixeles = imagen.load()
     imagen_procesada = Image.new("RGB", (ancho, alto), color="white")
-    actualizar_visualizacion("Copia realizada")
+    editor.mostrar_imagen1(imagen)
+    editor.mostrar_imagen2(imagen_procesada)
 
 
 def aplicar_escala_grises(event):
@@ -51,7 +42,7 @@ def aplicar_escala_grises(event):
             b = pixel[2]
             g = (r + g + b) // 3
             pixeles_salida[x, y] = (g, g, g)
-    actualizar_visualizacion("Escala de Grises")
+    editor.mostrar_imagen2(imagen_procesada)
 
 
 def aplicar_filtro3x3(event):
@@ -80,7 +71,7 @@ def aplicar_mascara(mask):
                 n = 1
             r, g, b = r // n, g // n, b // n
             pixeles_salida[x, y] = (r, g, b)
-    actualizar_visualizacion("Filtro aplicado")
+    editor.mostrar_imagen2(imagen_procesada)
 
 
 def aplicar_suavizado(event):
@@ -100,7 +91,7 @@ def aplicar_suavizado(event):
                         n += 1
             r, g, b = r // n, g // n, b // n
             pixeles_salida[x, y] = (r, g, b)
-    actualizar_visualizacion("Suavizado")
+    editor.mostrar_imagen2(imagen_procesada)
 
 
 def guardar_imagen(event):

@@ -9,9 +9,14 @@ class Editor:
         self.ax2 = ax2
 
     def mostrar_imagen1(self, imagen):
+        self.ax1.clear()
         self.ax1.imshow(imagen)
         self.ax1.set_title("Imagen Original")
+        self.fig.canvas.draw_idle()
 
     def mostrar_imagen2(self, imagen):
+        print(imagen)
+        self.ax2.clear()
         self.ax2.imshow(imagen)
         self.ax2.set_title("Imagen Procesada")
+        self.fig.canvas.draw_idle()
