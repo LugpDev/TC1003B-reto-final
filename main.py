@@ -123,7 +123,6 @@ ax1.set_title("Imagen original")
 ax2.imshow(imagen_procesada)
 ax2.set_title("Imagen en niveles de gris")
 
-plt.tight_layout()
 
 plt.subplots_adjust(wspace=0.2)
 
