@@ -11,6 +11,7 @@ from filtros.suavizado import suavizado_3x3, suavizado_5x5, suavizado_7x7
 from filtros.bordes import aplicar_bordes_horizontal, aplicar_bordes_vertical
 from lib.copiar_imagen import copiar_imagen
 from lib.guardar_imagen import guardar_imagen
+from lib.crear_boton import crear_boton
 
 
 Tk().withdraw()
@@ -26,66 +27,39 @@ editor.mostrar_imagen2(editor.imagen_procesada)
 
 plt.subplots_adjust(wspace=0.2)
 
-ax_btn_grises = plt.axes([0.0, 0.96, 0.08, 0.04])
-btn_grises = Button(ax_btn_grises, "Grises", color="lightblue", hovercolor="skyblue")
+btn_grises = crear_boton([0.0, 0.96, 0.08, 0.04], "Grises")
 btn_grises.on_clicked(lambda event: aplicar_escala_grises(event, editor))
 
-ax_btn_binario_fijo = plt.axes([0.08, 0.96, 0.08, 0.04])
-btn_binario_fijo = Button(
-    ax_btn_binario_fijo, "Binario fijo", color="lightblue", hovercolor="skyblue"
-)
+btn_binario_fijo = crear_boton([0.08, 0.96, 0.08, 0.04], "Binario fijo")
 btn_binario_fijo.on_clicked(lambda event: aplicar_binario(event, editor))
 
-ax_btn_binario_dinamico = plt.axes([0.16, 0.96, 0.1, 0.04])
-btn_binario_dinamico = Button(
-    ax_btn_binario_dinamico, "Binario dinámico", color="lightblue", hovercolor="skyblue"
-)
+btn_binario_dinamico = crear_boton([0.16, 0.96, 0.1, 0.04], "Binario dinámico")
 btn_binario_dinamico.on_clicked(
     lambda event: aplicar_binario(event, editor, binarizado=True)
 )
 
-ax_btn_inversio = plt.axes([0.26, 0.96, 0.08, 0.04])
-btn_inversio = Button(
-    ax_btn_inversio, "Inverso", color="lightblue", hovercolor="skyblue"
-)
-btn_inversio.on_clicked(lambda event: aplicar_inverso(event, editor))
+btn_inverso = crear_boton([0.26, 0.96, 0.08, 0.04], "Inverso")
+btn_inverso.on_clicked(lambda event: aplicar_inverso(event, editor))
 
-btn_suavizado3x3 = plt.axes([0.34, 0.96, 0.1, 0.04])
-btn_suavizado3x3 = Button(
-    btn_suavizado3x3, "Suavizado 3x3", color="lightblue", hovercolor="skyblue"
-)
+btn_suavizado3x3 = crear_boton([0.34, 0.96, 0.1, 0.04], "Suavizado 3x3")
 btn_suavizado3x3.on_clicked(lambda event: suavizado_3x3(event, editor))
 
-btn_suavizado5x5 = plt.axes([0.44, 0.96, 0.1, 0.04])
-btn_suavizado5x5 = Button(
-    btn_suavizado5x5, "Suavizado 5x5", color="lightblue", hovercolor="skyblue"
-)
+btn_suavizado5x5 = crear_boton([0.44, 0.96, 0.1, 0.04], "Suavizado 5x5")
 btn_suavizado5x5.on_clicked(lambda event: suavizado_5x5(event, editor))
 
-btn_suavizado7x7 = plt.axes([0.54, 0.96, 0.1, 0.04])
-btn_suavizado7x7 = Button(
-    btn_suavizado7x7, "Suavizado 7x7", color="lightblue", hovercolor="skyblue"
-)
+btn_suavizado7x7 = crear_boton([0.54, 0.96, 0.1, 0.04], "Suavizado 7x7")
 btn_suavizado7x7.on_clicked(lambda event: suavizado_7x7(event, editor))
 
-btn_bordes_horizontal = plt.axes([0.64, 0.96, 0.1, 0.04])
-btn_bordes_horizontal = Button(
-    btn_bordes_horizontal, "Bordes horiz.", color="lightblue", hovercolor="skyblue"
-)
+btn_bordes_horizontal = crear_boton([0.64, 0.96, 0.1, 0.04], "Bordes horiz.")
 btn_bordes_horizontal.on_clicked(lambda event: aplicar_bordes_horizontal(event, editor))
 
-btn_bordes_vertical = plt.axes([0.74, 0.96, 0.1, 0.04])
-btn_bordes_vertical = Button(
-    btn_bordes_vertical, "Bordes vert.", color="lightblue", hovercolor="skyblue"
-)
+btn_bordes_vertical = crear_boton([0.74, 0.96, 0.1, 0.04], "Bordes vert.")
 btn_bordes_vertical.on_clicked(lambda event: aplicar_bordes_vertical(event, editor))
 
-ax_btn_save = plt.axes([0.92, 0.96, 0.08, 0.04])
-btn_save = Button(ax_btn_save, "Guardar", color="white", hovercolor="yellow")
+btn_save = crear_boton([0.92, 0.96, 0.08, 0.04], "Guardar")
 btn_save.on_clicked(lambda event: guardar_imagen(event, editor))
 
-ax_btn_copy = plt.axes([0.48, 0.48, 0.04, 0.04])
-btn_copy = Button(ax_btn_copy, "<-", color="white", hovercolor="yellow")
+btn_copy = crear_boton([0.48, 0.48, 0.04, 0.04], "<-")
 btn_copy.on_clicked(lambda event: copiar_imagen(event, editor))
 
 plt.show()
