@@ -103,11 +103,13 @@ ax_btn_suavizado = plt.axes([0.08, 0.96, 0.08, 0.04])
 btn_suavizado = Button(
     ax_btn_suavizado, "Binario fijo", color="lightblue", hovercolor="skyblue"
 )
-btn_suavizado.on_clicked(lambda event: aplicar_binario(event, editor, binarizado=False))
+btn_suavizado.on_clicked(lambda event: aplicar_binario(event, editor))
 
-ax_btn_filtro = plt.axes([0.16, 0.96, 0.08, 0.04])
-btn_filtro = Button(ax_btn_filtro, "Filtro3x3", color="lightblue", hovercolor="skyblue")
-btn_filtro.on_clicked(aplicar_filtro3x3)
+ax_btn_filtro = plt.axes([0.16, 0.96, 0.1, 0.04])
+btn_filtro = Button(
+    ax_btn_filtro, "Binario dinámico", color="lightblue", hovercolor="skyblue"
+)
+btn_filtro.on_clicked(lambda event: aplicar_binario(event, editor, binarizado=True))
 
 ax_btn_save = plt.axes([0.92, 0.96, 0.08, 0.04])
 btn_save = Button(ax_btn_save, "Guardar", color="white", hovercolor="yellow")
