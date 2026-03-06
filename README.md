@@ -36,5 +36,5 @@ pip install -r requirements.txt
 Con el entorno virtual activo:
 
 ```bash
-python main.py
+python src/main.py
 ```
