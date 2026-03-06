@@ -1,4 +1,4 @@
-def aplicar_inverso(event, editor):
+def aplicar_inverso(editor):
 
     pixeles_salida = editor.imagen_procesada.load()
 

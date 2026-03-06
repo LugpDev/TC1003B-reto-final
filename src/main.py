@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 from matplotlib.widgets import Button
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 from tkinter import Tk
+from core.image_document import ImageDocument
 from lib.Editor import Editor
 
 from filtros.grises import aplicar_escala_grises
@@ -12,6 +13,7 @@ from filtros.bordes import aplicar_bordes_horizontal, aplicar_bordes_vertical
 from lib.copiar_imagen import copiar_imagen
 from lib.guardar_imagen import guardar_imagen
 from lib.crear_boton import crear_boton
+from core.matplotlib_viewer import MatplotlibViewer
 
 
 Tk().withdraw()
@@ -19,47 +21,47 @@ archivo = askopenfilename(filetypes=[("Imágenes", "*.jpg *.png *.avif")])
 if not archivo:
     exit()
 
+matplotlib_viewer = MatplotlibViewer()
+image_document = ImageDocument(archivo)
 
-editor = Editor(archivo)
-editor.mostrar_imagen1(editor.imagen)
-editor.mostrar_imagen2(editor.imagen_procesada)
+# editor = Editor(archivo)
+matplotlib_viewer.mostrar_original(image_document.original)
+matplotlib_viewer.mostrar_procesada(image_document.procesada, "Imagen Procesada")
 
 
-plt.subplots_adjust(wspace=0.2)
+# btn_grises = crear_boton([0.0, 0.96, 0.08, 0.04], "Grises")
+# btn_grises.on_clicked(lambda event: aplicar_escala_grises(event, editor))
 
-btn_grises = crear_boton([0.0, 0.96, 0.08, 0.04], "Grises")
-btn_grises.on_clicked(lambda event: aplicar_escala_grises(event, editor))
+# btn_binario_fijo = crear_boton([0.08, 0.96, 0.08, 0.04], "Binario fijo")
+# btn_binario_fijo.on_clicked(lambda event: aplicar_binario(event, editor))
 
-btn_binario_fijo = crear_boton([0.08, 0.96, 0.08, 0.04], "Binario fijo")
-btn_binario_fijo.on_clicked(lambda event: aplicar_binario(event, editor))
+# btn_binario_dinamico = crear_boton([0.16, 0.96, 0.1, 0.04], "Binario dinámico")
+# btn_binario_dinamico.on_clicked(
+#     lambda event: aplicar_binario(event, editor, binarizado=True)
+# )
 
-btn_binario_dinamico = crear_boton([0.16, 0.96, 0.1, 0.04], "Binario dinámico")
-btn_binario_dinamico.on_clicked(
-    lambda event: aplicar_binario(event, editor, binarizado=True)
-)
+# btn_inverso = crear_boton([0.26, 0.96, 0.08, 0.04], "Inverso")
+# btn_inverso.on_clicked(aplicar_inverso(editor))
 
-btn_inverso = crear_boton([0.26, 0.96, 0.08, 0.04], "Inverso")
-btn_inverso.on_clicked(lambda event: aplicar_inverso(event, editor))
+# btn_suavizado3x3 = crear_boton([0.34, 0.96, 0.1, 0.04], "Suavizado 3x3")
+# btn_suavizado3x3.on_clicked(lambda event: suavizado_3x3(event, editor))
 
-btn_suavizado3x3 = crear_boton([0.34, 0.96, 0.1, 0.04], "Suavizado 3x3")
-btn_suavizado3x3.on_clicked(lambda event: suavizado_3x3(event, editor))
+# btn_suavizado5x5 = crear_boton([0.44, 0.96, 0.1, 0.04], "Suavizado 5x5")
+# btn_suavizado5x5.on_clicked(lambda event: suavizado_5x5(event, editor))
 
-btn_suavizado5x5 = crear_boton([0.44, 0.96, 0.1, 0.04], "Suavizado 5x5")
-btn_suavizado5x5.on_clicked(lambda event: suavizado_5x5(event, editor))
+# btn_suavizado7x7 = crear_boton([0.54, 0.96, 0.1, 0.04], "Suavizado 7x7")
+# btn_suavizado7x7.on_clicked(lambda event: suavizado_7x7(event, editor))
 
-btn_suavizado7x7 = crear_boton([0.54, 0.96, 0.1, 0.04], "Suavizado 7x7")
-btn_suavizado7x7.on_clicked(lambda event: suavizado_7x7(event, editor))
+# btn_bordes_horizontal = crear_boton([0.64, 0.96, 0.1, 0.04], "Bordes horiz.")
+# btn_bordes_horizontal.on_clicked(lambda event: aplicar_bordes_horizontal(event, editor))
 
-btn_bordes_horizontal = crear_boton([0.64, 0.96, 0.1, 0.04], "Bordes horiz.")
-btn_bordes_horizontal.on_clicked(lambda event: aplicar_bordes_horizontal(event, editor))
+# btn_bordes_vertical = crear_boton([0.74, 0.96, 0.1, 0.04], "Bordes vert.")
+# btn_bordes_vertical.on_clicked(lambda event: aplicar_bordes_vertical(event, editor))
 
-btn_bordes_vertical = crear_boton([0.74, 0.96, 0.1, 0.04], "Bordes vert.")
-btn_bordes_vertical.on_clicked(lambda event: aplicar_bordes_vertical(event, editor))
+# btn_save = crear_boton([0.92, 0.96, 0.08, 0.04], "Guardar")
+# btn_save.on_clicked(lambda event: guardar_imagen(event, editor))
 
-btn_save = crear_boton([0.92, 0.96, 0.08, 0.04], "Guardar")
-btn_save.on_clicked(lambda event: guardar_imagen(event, editor))
-
-btn_copy = crear_boton([0.48, 0.48, 0.04, 0.04], "<-")
-btn_copy.on_clicked(lambda event: copiar_imagen(event, editor))
+# btn_copy = crear_boton([0.48, 0.48, 0.04, 0.04], "<-")
+# btn_copy.on_clicked(lambda event: copiar_imagen(event, editor))
 
 plt.show()
