@@ -21,12 +21,9 @@ archivo = askopenfilename(filetypes=[("Imágenes", "*.jpg *.png *.avif")])
 if not archivo:
     exit()
 
-matplotlib_viewer = MatplotlibViewer()
-image_document = ImageDocument(archivo)
 
-# editor = Editor(archivo)
-matplotlib_viewer.mostrar_original(image_document.original)
-matplotlib_viewer.mostrar_procesada(image_document.procesada, "Imagen Procesada")
+editor = Editor(archivo)
+editor.mostrar_imagenes()
 
 
 # btn_grises = crear_boton([0.0, 0.96, 0.08, 0.04], "Grises")

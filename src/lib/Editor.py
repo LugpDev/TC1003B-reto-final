@@ -1,14 +1,15 @@
 import matplotlib.pyplot as plt
 from PIL import Image
 
+from core.image_document import ImageDocument
+from core.matplotlib_viewer import MatplotlibViewer
+
 
 class Editor:
     def __init__(self, archivo):
-        # Setup de la imagen
-        imagen_original = Image.open(archivo)
-        self.imagen = imagen_original
-        ancho, alto = imagen_original.size
-        self.imagen_procesada = Image.new("RGB", (ancho, alto), color="white")
-        self.ancho = ancho
-        self.alto = alto
-        self.pixeles = imagen_original.load()
+        self.doc = ImageDocument(archivo)
+        self.viewer = MatplotlibViewer()
+
+    def mostrar_imagenes(self):
+        self.viewer.mostrar_original(self.doc.original)
+        self.viewer.mostrar_procesada(self.doc.procesada, "Imagen Procesada")
