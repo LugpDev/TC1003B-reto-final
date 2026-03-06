@@ -6,7 +6,7 @@
 1. Clona o descarga este proyecto y entra a la carpeta:
 
 ```bash
-cd TC1003B-filtros
+cd TC1003B-reto-final
 ```
 
 2. Crea y activa un entorno virtual:
