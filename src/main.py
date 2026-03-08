@@ -3,7 +3,7 @@ from matplotlib.widgets import Button
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 from tkinter import Tk
 from core.image_document import ImageDocument
-from lib.Editor import Editor
+from core.Editor import Editor
 
 from filtros.escala_grises import escala_grises
 from filtros.binario import aplicar_binario
