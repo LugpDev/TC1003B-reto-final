@@ -23,7 +23,7 @@ def binarizado_fijo(doc):
 def binarizado_dinamico(doc):
     pixeles_salida = doc.procesada.load()
 
-    datos = doc.imagen.getdata()
+    datos = doc.original.getdata()
     suma = sum((r + g + b) // 3 for r, g, b in datos)
     umbral = suma / (doc.ancho * doc.alto)
 
