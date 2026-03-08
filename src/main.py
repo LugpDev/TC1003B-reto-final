@@ -1,7 +1,5 @@
 import matplotlib.pyplot as plt
 from matplotlib.widgets import Button
-from tkinter.filedialog import askopenfilename, asksaveasfilename
-from tkinter import Tk
 from core.image_document import ImageDocument
 from core.Editor import Editor
 
@@ -56,8 +54,8 @@ btn_grises.on_clicked(lambda event: editor.aplicar_filtro(escala_grises))
 # btn_bordes_vertical = crear_boton([0.74, 0.96, 0.1, 0.04], "Bordes vert.")
 # btn_bordes_vertical.on_clicked(lambda event: aplicar_bordes_vertical(event, editor))
 
-# btn_save = crear_boton([0.92, 0.96, 0.08, 0.04], "Guardar")
-# btn_save.on_clicked(lambda event: guardar_imagen(event, editor))
+btn_save = crear_boton([0.92, 0.96, 0.08, 0.04], "Guardar")
+btn_save.on_clicked(lambda event: editor.guardar_imagen())
 
 # btn_copy = crear_boton([0.48, 0.48, 0.04, 0.04], "<-")
 # btn_copy.on_clicked(lambda event: copiar_imagen(event, editor))
