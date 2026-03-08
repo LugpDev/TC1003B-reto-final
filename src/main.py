@@ -7,7 +7,7 @@ from filtros.escala_grises import escala_grises
 from filtros.binarizado import binarizado_fijo, binarizado_dinamico
 from filtros.inverso import inverso
 from filtros.suavizado import suavizado_3x3, suavizado_5x5, suavizado_7x7
-from filtros.bordes import aplicar_bordes_horizontal, aplicar_bordes_vertical
+from filtros.bordes import bordes_horizontales, bordes_verticales
 from lib.copiar_imagen import copiar_imagen
 from lib.crear_boton import crear_boton
 from core.matplotlib_viewer import MatplotlibViewer
@@ -38,20 +38,22 @@ btn_binario_dinamico.on_clicked(
 btn_inverso = crear_boton([0.26, 0.96, 0.08, 0.04], "Inverso")
 btn_inverso.on_clicked(lambda event: editor.aplicar_filtro(inverso))
 
-# btn_suavizado3x3 = crear_boton([0.34, 0.96, 0.1, 0.04], "Suavizado 3x3")
-# btn_suavizado3x3.on_clicked(lambda event: suavizado_3x3(event, editor))
+btn_suavizado3x3 = crear_boton([0.34, 0.96, 0.1, 0.04], "Suavizado 3x3")
+btn_suavizado3x3.on_clicked(lambda event: editor.aplicar_filtro(suavizado_3x3))
 
-# btn_suavizado5x5 = crear_boton([0.44, 0.96, 0.1, 0.04], "Suavizado 5x5")
-# btn_suavizado5x5.on_clicked(lambda event: suavizado_5x5(event, editor))
+btn_suavizado5x5 = crear_boton([0.44, 0.96, 0.1, 0.04], "Suavizado 5x5")
+btn_suavizado5x5.on_clicked(lambda event: editor.aplicar_filtro(suavizado_5x5))
 
-# btn_suavizado7x7 = crear_boton([0.54, 0.96, 0.1, 0.04], "Suavizado 7x7")
-# btn_suavizado7x7.on_clicked(lambda event: suavizado_7x7(event, editor))
+btn_suavizado7x7 = crear_boton([0.54, 0.96, 0.1, 0.04], "Suavizado 7x7")
+btn_suavizado7x7.on_clicked(lambda event: editor.aplicar_filtro(suavizado_7x7))
 
-# btn_bordes_horizontal = crear_boton([0.64, 0.96, 0.1, 0.04], "Bordes horiz.")
-# btn_bordes_horizontal.on_clicked(lambda event: aplicar_bordes_horizontal(event, editor))
+btn_bordes_horizontal = crear_boton([0.64, 0.96, 0.1, 0.04], "Bordes horiz.")
+btn_bordes_horizontal.on_clicked(
+    lambda event: editor.aplicar_filtro(bordes_horizontales)
+)
 
-# btn_bordes_vertical = crear_boton([0.74, 0.96, 0.1, 0.04], "Bordes vert.")
-# btn_bordes_vertical.on_clicked(lambda event: aplicar_bordes_vertical(event, editor))
+btn_bordes_vertical = crear_boton([0.74, 0.96, 0.1, 0.04], "Bordes vert.")
+btn_bordes_vertical.on_clicked(lambda event: editor.aplicar_filtro(bordes_verticales))
 
 btn_save = crear_boton([0.92, 0.96, 0.08, 0.04], "Guardar")
 btn_save.on_clicked(lambda event: editor.guardar_imagen())

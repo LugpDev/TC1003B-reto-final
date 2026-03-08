@@ -1,11 +1,11 @@
 from lib.aplicar_mascara import aplicar_mascara
 
 
-def aplicar_bordes_horizontal(event, editor):
+def bordes_horizontales(doc):
     mask = [[-1, -2, -1], [0, 0, 0], [1, 2, 1]]
-    aplicar_mascara(mask, editor)
+    return aplicar_mascara(doc, mask, "Bordes horizontales")
 
 
-def aplicar_bordes_vertical(event, editor):
+def bordes_verticales(doc):
     mask = [[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]]
-    aplicar_mascara(mask, editor)
+    return aplicar_mascara(doc, mask, "Bordes verticales")
