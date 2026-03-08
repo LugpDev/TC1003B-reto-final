@@ -16,18 +16,21 @@ from lib.crear_boton import crear_boton
 from core.matplotlib_viewer import MatplotlibViewer
 
 
-Tk().withdraw()
-archivo = askopenfilename(filetypes=[("Imágenes", "*.jpg *.png *.avif")])
-if not archivo:
-    exit()
+archivo = "test.avif"
+# Tk().withdraw()
+# archivo = askopenfilename(filetypes=[("Imágenes", "*.jpg *.png *.avif")])
+# if not archivo:
+#     exit()
 
 
 editor = Editor(archivo)
 editor.mostrar_imagenes()
 
 
-# btn_grises = crear_boton([0.0, 0.96, 0.08, 0.04], "Grises")
-# btn_grises.on_clicked(lambda event: aplicar_escala_grises(event, editor))
+btn_grises = crear_boton([0.0, 0.96, 0.08, 0.04], "Grises")
+btn_grises.on_clicked(
+    lambda event: editor.aplicar_filtro(aplicar_escala_grises, "Grises")
+)
 
 # btn_binario_fijo = crear_boton([0.08, 0.96, 0.08, 0.04], "Binario fijo")
 # btn_binario_fijo.on_clicked(lambda event: aplicar_binario(event, editor))
