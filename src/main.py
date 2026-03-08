@@ -5,7 +5,7 @@ from core.Editor import Editor
 
 from filtros.escala_grises import escala_grises
 from filtros.binarizado import binarizado_fijo, binarizado_dinamico
-from filtros.inverso import aplicar_inverso
+from filtros.inverso import inverso
 from filtros.suavizado import suavizado_3x3, suavizado_5x5, suavizado_7x7
 from filtros.bordes import aplicar_bordes_horizontal, aplicar_bordes_vertical
 from lib.copiar_imagen import copiar_imagen
@@ -35,8 +35,8 @@ btn_binario_dinamico.on_clicked(
     lambda event: editor.aplicar_filtro(binarizado_dinamico)
 )
 
-# btn_inverso = crear_boton([0.26, 0.96, 0.08, 0.04], "Inverso")
-# btn_inverso.on_clicked(aplicar_inverso(editor))
+btn_inverso = crear_boton([0.26, 0.96, 0.08, 0.04], "Inverso")
+btn_inverso.on_clicked(lambda event: editor.aplicar_filtro(inverso))
 
 # btn_suavizado3x3 = crear_boton([0.34, 0.96, 0.1, 0.04], "Suavizado 3x3")
 # btn_suavizado3x3.on_clicked(lambda event: suavizado_3x3(event, editor))
