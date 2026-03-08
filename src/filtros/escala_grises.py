@@ -1,4 +1,4 @@
-def aplicar_escala_grises(doc):
+def escala_grises(doc):
     pixeles_salida = doc.procesada.load()
 
     for x in range(doc.ancho):

@@ -5,7 +5,7 @@ from tkinter import Tk
 from core.image_document import ImageDocument
 from lib.Editor import Editor
 
-from filtros.grises import aplicar_escala_grises
+from filtros.escala_grises import escala_grises
 from filtros.binario import aplicar_binario
 from filtros.inverso import aplicar_inverso
 from filtros.suavizado import suavizado_3x3, suavizado_5x5, suavizado_7x7
@@ -28,7 +28,7 @@ editor.mostrar_imagenes()
 
 
 btn_grises = crear_boton([0.0, 0.96, 0.08, 0.04], "Grises")
-btn_grises.on_clicked(lambda event: editor.aplicar_filtro(aplicar_escala_grises))
+btn_grises.on_clicked(lambda event: editor.aplicar_filtro(escala_grises))
 
 # btn_binario_fijo = crear_boton([0.08, 0.96, 0.08, 0.04], "Binario fijo")
 # btn_binario_fijo.on_clicked(lambda event: aplicar_binario(event, editor))
