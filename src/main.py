@@ -4,12 +4,11 @@ from core.image_document import ImageDocument
 from core.Editor import Editor
 
 from filtros.escala_grises import escala_grises
-from filtros.binario import aplicar_binario
+from filtros.binarizado import binarizado_fijo, binarizado_dinamico
 from filtros.inverso import aplicar_inverso
 from filtros.suavizado import suavizado_3x3, suavizado_5x5, suavizado_7x7
 from filtros.bordes import aplicar_bordes_horizontal, aplicar_bordes_vertical
 from lib.copiar_imagen import copiar_imagen
-from lib.guardar_imagen import guardar_imagen
 from lib.crear_boton import crear_boton
 from core.matplotlib_viewer import MatplotlibViewer
 
@@ -28,13 +27,13 @@ editor.mostrar_imagenes()
 btn_grises = crear_boton([0.0, 0.96, 0.08, 0.04], "Grises")
 btn_grises.on_clicked(lambda event: editor.aplicar_filtro(escala_grises))
 
-# btn_binario_fijo = crear_boton([0.08, 0.96, 0.08, 0.04], "Binario fijo")
-# btn_binario_fijo.on_clicked(lambda event: aplicar_binario(event, editor))
+btn_binario_fijo = crear_boton([0.08, 0.96, 0.08, 0.04], "Binario fijo")
+btn_binario_fijo.on_clicked(lambda event: editor.aplicar_filtro(binarizado_fijo))
 
-# btn_binario_dinamico = crear_boton([0.16, 0.96, 0.1, 0.04], "Binario dinámico")
-# btn_binario_dinamico.on_clicked(
-#     lambda event: aplicar_binario(event, editor, binarizado=True)
-# )
+btn_binario_dinamico = crear_boton([0.16, 0.96, 0.1, 0.04], "Binario dinámico")
+btn_binario_dinamico.on_clicked(
+    lambda event: editor.aplicar_filtro(binarizado_dinamico)
+)
 
 # btn_inverso = crear_boton([0.26, 0.96, 0.08, 0.04], "Inverso")
 # btn_inverso.on_clicked(aplicar_inverso(editor))
