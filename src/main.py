@@ -28,9 +28,7 @@ editor.mostrar_imagenes()
 
 
 btn_grises = crear_boton([0.0, 0.96, 0.08, 0.04], "Grises")
-btn_grises.on_clicked(
-    lambda event: editor.aplicar_filtro(aplicar_escala_grises, "Grises")
-)
+btn_grises.on_clicked(lambda event: editor.aplicar_filtro(aplicar_escala_grises))
 
 # btn_binario_fijo = crear_boton([0.08, 0.96, 0.08, 0.04], "Binario fijo")
 # btn_binario_fijo.on_clicked(lambda event: aplicar_binario(event, editor))

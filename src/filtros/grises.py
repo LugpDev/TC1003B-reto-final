@@ -9,3 +9,5 @@ def aplicar_escala_grises(doc):
             b = pixel[2]
             g = (r + g + b) // 3
             pixeles_salida[x, y] = (g, g, g)
+
+    return "Escala de grises"

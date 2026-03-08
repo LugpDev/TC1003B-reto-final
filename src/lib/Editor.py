@@ -11,6 +11,6 @@ class Editor:
         self.viewer.mostrar_original(self.doc.original)
         self.viewer.mostrar_procesada(self.doc.procesada, "Imagen Procesada")
 
-    def aplicar_filtro(self, func, nombre):
-        func(self.doc)
+    def aplicar_filtro(self, func):
+        nombre = func(self.doc)
         self.viewer.mostrar_procesada(self.doc.procesada, f"Filtro aplicado: {nombre}")
