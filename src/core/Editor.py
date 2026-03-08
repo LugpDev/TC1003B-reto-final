@@ -25,3 +25,10 @@ class Editor:
         nombre_archivo = output_dir / f"imagen_procesada_{timestamp}.png"
 
         self.doc.procesada.save(nombre_archivo)
+
+    def copiar_imagen(self):
+        imagen = self.doc.procesada.copy()
+        self.doc.original = imagen
+        self.doc.pixeles = imagen.load()
+        self.doc.borrar_procesada()
+        self.mostrar_imagenes()

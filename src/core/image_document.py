@@ -7,3 +7,6 @@ class ImageDocument:
         self.ancho, self.alto = self.original.size
         self.procesada = Image.new("RGB", (self.ancho, self.alto), color="white")
         self.pixeles = self.original.load()
+
+    def borrar_procesada(self):
+        self.procesada = Image.new("RGB", (self.ancho, self.alto), color="white")

@@ -58,7 +58,7 @@ btn_bordes_vertical.on_clicked(lambda event: editor.aplicar_filtro(bordes_vertic
 btn_save = crear_boton([0.92, 0.96, 0.08, 0.04], "Guardar")
 btn_save.on_clicked(lambda event: editor.guardar_imagen())
 
-# btn_copy = crear_boton([0.48, 0.48, 0.04, 0.04], "<-")
-# btn_copy.on_clicked(lambda event: copiar_imagen(event, editor))
+btn_copy = crear_boton([0.48, 0.48, 0.04, 0.04], "<-")
+btn_copy.on_clicked(lambda event: editor.copiar_imagen())
 
 plt.show()
