@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
-from core.editor import Editor
+from tkinter import Tk
+from tkinter.filedialog import askopenfilename
 
+from core.editor import Editor
 from filtros.escala_grises import escala_grises
 from filtros.binarizado import binarizado_fijo, binarizado_dinamico
 from filtros.inverso import inverso
@@ -9,11 +11,10 @@ from filtros.bordes import bordes_horizontales, bordes_verticales
 from lib.crear_boton import crear_boton
 
 
-archivo = "test.avif"
-# Tk().withdraw()
-# archivo = askopenfilename(filetypes=[("Imágenes", "*.jpg *.png *.avif")])
-# if not archivo:
-#     exit()
+Tk().withdraw()
+archivo = askopenfilename(filetypes=[("Imágenes", "*.jpg *.png *.avif")])
+if not archivo:
+    exit()
 
 
 editor = Editor(archivo)
