@@ -1,9 +1,8 @@
-def img_suma(event):
-    global imagen_procesada
-    pixeles_salida = imagen_procesada.load()
+def img_suma(doc, pixeles1, pixeles2):
+    pixeles_salida = doc.procesada.copy().load()
 
-    for x in range(ancho):
-        for y in range(alto):
+    for x in range(doc.ancho):
+        for y in range(doc.alto):
             r1, g1, b1 = pixeles1[x, y]
             r2, g2, b2 = pixeles2[x, y]
 
@@ -12,3 +11,5 @@ def img_suma(event):
                 min(g1 + g2, 255),
                 min(b1 + b2, 255),
             )
+
+    return pixeles_salida

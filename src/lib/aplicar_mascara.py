@@ -1,5 +1,4 @@
 def aplicar_mascara(doc, mask, nombre):
-
     pixeles_salida = doc.procesada.copy().load()
 
     for x in range(doc.ancho):

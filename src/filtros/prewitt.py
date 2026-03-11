@@ -1,10 +1,13 @@
 from lib.aplicar_mascara import aplicar_mascara
+from lib.img_suma import img_suma
 
 
 def prewritt(doc):
     mask_horizontal = [[-1, 0, 1], [-1, 0, 1], [-1, 0, 1]]
     mask_vertical = [[-1, -1, -1], [0, 0, 0], [1, 1, 1]]
-    horizontal = aplicar_mascara(doc, mask_horizontal, "Prewitt Horizontal")
-    vertical = aplicar_mascara(doc, mask_vertical, "Prewitt Vertical")
+    [horizontal, _] = aplicar_mascara(doc, mask_horizontal, "Prewitt Horizontal")
+    [vertical, _] = aplicar_mascara(doc, mask_vertical, "Prewitt Vertical")
 
-    print(horizontal, vertical)
+    pixeles = img_suma(doc, horizontal, vertical)
+
+    return [pixeles, "Prewitt"]

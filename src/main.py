@@ -7,7 +7,7 @@ from filtros.escala_grises import escala_grises
 from filtros.binarizado import binarizado_fijo, binarizado_dinamico
 from filtros.inverso import inverso
 from filtros.suavizado import suavizado_3x3, suavizado_5x5, suavizado_7x7
-from filtros.bordes import bordes_horizontales, bordes_verticales
+from filtros.prewitt import prewritt
 from lib.crear_boton import crear_boton
 
 
@@ -44,13 +44,8 @@ btn_suavizado5x5.on_clicked(lambda event: editor.aplicar_filtro(suavizado_5x5))
 btn_suavizado7x7 = crear_boton([0.54, 0.96, 0.1, 0.04], "Suavizado 7x7")
 btn_suavizado7x7.on_clicked(lambda event: editor.aplicar_filtro(suavizado_7x7))
 
-btn_bordes_horizontal = crear_boton([0.64, 0.96, 0.1, 0.04], "Bordes horiz.")
-btn_bordes_horizontal.on_clicked(
-    lambda event: editor.aplicar_filtro(bordes_horizontales)
-)
-
-btn_bordes_vertical = crear_boton([0.74, 0.96, 0.1, 0.04], "Bordes vert.")
-btn_bordes_vertical.on_clicked(lambda event: editor.aplicar_filtro(bordes_verticales))
+btn_bordes_horizontal = crear_boton([0.64, 0.96, 0.1, 0.04], "prewitt")
+btn_bordes_horizontal.on_clicked(lambda event: editor.aplicar_filtro(prewritt))
 
 btn_save = crear_boton([0.92, 0.96, 0.08, 0.04], "Guardar")
 btn_save.on_clicked(lambda event: editor.guardar_imagen())
