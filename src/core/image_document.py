@@ -10,3 +10,8 @@ class ImageDocument:
 
     def borrar_procesada(self):
         self.procesada = Image.new("RGB", (self.ancho, self.alto), color="white")
+
+    def actualizar_procesada(self, pixeles_salida):
+        for x in range(self.ancho):
+            for y in range(self.alto):
+                self.procesada.putpixel((x, y), pixeles_salida[x, y])

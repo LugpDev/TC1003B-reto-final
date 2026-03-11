@@ -1,5 +1,5 @@
 def escala_grises(doc):
-    pixeles_salida = doc.procesada.load()
+    pixeles_salida = doc.procesada.copy().load()
 
     for x in range(doc.ancho):
         for y in range(doc.alto):
@@ -10,4 +10,4 @@ def escala_grises(doc):
             g = (r + g + b) // 3
             pixeles_salida[x, y] = (g, g, g)
 
-    return "Escala de grises"
+    return [pixeles_salida, "Escala de grises"]
