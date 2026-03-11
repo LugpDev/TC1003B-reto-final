@@ -21,3 +21,9 @@ def sobel(doc):
     mask_horizontal = [[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]]
     mask_vertical = [[-1, -2, -1], [0, 0, 0], [1, 2, 1]]
     return aplicar_bordes(doc, mask_horizontal, mask_vertical, "Sobel")
+
+
+def roberts(doc):
+    mask_horizontal = [[-1, 0, 0], [0, 1, 0], [0, 0, 0]]
+    mask_vertical = [[0, 0, -1], [0, 1, 0], [0, 0, 0]]
+    return aplicar_bordes(doc, mask_horizontal, mask_vertical, "Roberts")
