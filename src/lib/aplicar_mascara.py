@@ -1,6 +1,6 @@
 def aplicar_mascara(doc, mask, nombre):
 
-    pixeles_salida = doc.procesada.load()
+    pixeles_salida = doc.procesada.copy().load()
 
     for x in range(doc.ancho):
         for y in range(doc.alto):
@@ -20,4 +20,4 @@ def aplicar_mascara(doc, mask, nombre):
             r, g, b = r // n, g // n, b // n
             pixeles_salida[x, y] = (r, g, b)
 
-    return nombre
+    return [pixeles_salida, nombre]

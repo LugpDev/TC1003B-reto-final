@@ -1,5 +1,5 @@
 def binarizado_fijo(doc):
-    pixeles_salida = doc.procesada.load()
+    pixeles_salida = doc.procesada.copy().load()
 
     umbral = 128
 
@@ -17,11 +17,11 @@ def binarizado_fijo(doc):
             else:
                 pixeles_salida[x, y] = (255, 255, 255)
 
-    return "Binarizado fijo"
+    return [pixeles_salida, "Binarizado fijo"]
 
 
 def binarizado_dinamico(doc):
-    pixeles_salida = doc.procesada.load()
+    pixeles_salida = doc.procesada.copy().load()
 
     datos = doc.original.getdata()
     suma = sum((r + g + b) // 3 for r, g, b in datos)
@@ -41,4 +41,4 @@ def binarizado_dinamico(doc):
             else:
                 pixeles_salida[x, y] = (255, 255, 255)
 
-    return "Binarizado dinámico"
+    return [pixeles_salida, "Binarizado dinámico"]
