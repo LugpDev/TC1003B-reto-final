@@ -8,6 +8,7 @@ from filtros.binarizado import binarizado_fijo, binarizado_dinamico
 from filtros.inverso import inverso
 from filtros.suavizado import suavizado_3x3, suavizado_5x5, suavizado_7x7
 from filtros.bordes import prewritt, sobel, roberts, canny
+from filtros.extras import contraste, nitidez
 from lib.crear_boton import crear_boton
 
 
@@ -56,9 +57,14 @@ btn_roberts.on_clicked(lambda event: editor.aplicar_filtro(roberts))
 btn_canny = crear_boton([0.85, 0.96, 0.07, 0.04], "Canny")
 btn_canny.on_clicked(lambda event: editor.aplicar_filtro(canny))
 
+btn_contraste = crear_boton([0.0, 0.92, 0.07, 0.04], "Contraste")
+btn_contraste.on_clicked(lambda event: editor.aplicar_filtro(contraste))
+
+btn_nitidez = crear_boton([0.08, 0.92, 0.07, 0.04], "Nitidez")
+btn_nitidez.on_clicked(lambda event: editor.aplicar_filtro(nitidez))
+
 btn_save = crear_boton([0.92, 0.96, 0.08, 0.04], "Guardar")
 btn_save.on_clicked(lambda event: editor.guardar_imagen())
-
 
 btn_copy = crear_boton([0.48, 0.48, 0.04, 0.04], "<-")
 btn_copy.on_clicked(lambda event: editor.copiar_imagen())
