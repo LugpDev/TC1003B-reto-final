@@ -30,6 +30,11 @@ def roberts(doc):
 
 
 def canny(doc):
+    mask_gaussiana = [[1, 2, 1], [2, 4, 2], [1, 2, 1]]
     mask_horizontal = [[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]]
     mask_vertical = [[1, 2, 1], [0, 0, 0], [-1, -2, -1]]
+
+    [pixeles_suavizados, _] = aplicar_mascara(doc, mask_gaussiana, "Gaussiano")
+    doc.pixeles = pixeles_suavizados
+
     return aplicar_bordes(doc, mask_horizontal, mask_vertical, "Canny")
